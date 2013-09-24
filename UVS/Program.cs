@@ -6,6 +6,7 @@ using Tools;
 using Controller.Abstract;
 using Ninject;
 using Controller;
+using System.Diagnostics;
 
 namespace UVS
 {
@@ -17,6 +18,16 @@ namespace UVS
         [STAThread]
         static void Main()
         {
+            // Detect existing instances
+            string processName = Process.GetCurrentProcess().ProcessName;
+            Process[] instances = Process.GetProcessesByName(processName);
+
+            if (instances.Length > 1)
+            {
+                return;
+            }
+            // End of detection
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainForm());

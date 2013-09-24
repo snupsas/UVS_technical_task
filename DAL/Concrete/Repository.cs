@@ -18,7 +18,7 @@ namespace DAL
         public void Create(int threadID, string generatedData, DateTime generationDate)
         {
             var connection = GetConnection();
-            string queryString = "INSERT INTO ThreadData (ThreadID, Data, CreationDate) VALUES (@ThreadID, @Data, @CreationDate)";
+            string queryString = "INSERT INTO ThreadData (ThreadID, [Time], Data) VALUES (@ThreadID, @Time, @Data)";
 
             using (connection)
             {
@@ -26,9 +26,9 @@ namespace DAL
                 {
                     command.CommandText = queryString;
                     command.Parameters.Add("@ThreadID", OleDbType.Integer).Value = threadID;
+                    command.Parameters.Add("@Time", OleDbType.Date).Value = generationDate;
                     command.Parameters.Add("@Data", OleDbType.WChar).Value = generatedData;
-                    command.Parameters.Add("@CreationDate", OleDbType.Date).Value = generationDate;
-
+                   
                     try
                     {
                         if (connection.State != System.Data.ConnectionState.Open)

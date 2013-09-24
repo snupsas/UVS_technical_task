@@ -114,5 +114,10 @@ namespace UVS
             }
             bt_Stop.Enabled = false;
         }
+
+        private void ts_UpperMenu_bt_Close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

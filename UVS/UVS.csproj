@@ -89,9 +89,9 @@
       <Project>{892068FF-9980-4DEE-9363-5A18290E3D10}</Project>
       <Name>Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tools\Tools.csproj">
+    <ProjectReference Include="..\Tools\DI.csproj">
       <Project>{A9AC5FDC-4A8C-4906-9B54-8EC083E5A098}</Project>
-      <Name>Tools</Name>
+      <Name>DI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
