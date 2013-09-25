@@ -104,8 +104,9 @@
             // 
             // ts_UpperMenu_bt_Close
             // 
+            this.ts_UpperMenu_bt_Close.Image = ((System.Drawing.Image)(resources.GetObject("ts_UpperMenu_bt_Close.Image")));
             this.ts_UpperMenu_bt_Close.Name = "ts_UpperMenu_bt_Close";
-            this.ts_UpperMenu_bt_Close.Size = new System.Drawing.Size(111, 22);
+            this.ts_UpperMenu_bt_Close.Size = new System.Drawing.Size(152, 22);
             this.ts_UpperMenu_bt_Close.Text = "Close";
             this.ts_UpperMenu_bt_Close.Click += new System.EventHandler(this.ts_UpperMenu_bt_Close_Click);
             // 

@@ -13,7 +13,7 @@ using Controller.Concrete;
 namespace UVSTest
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest
     {
         [TestMethod]
         public void Test_RandomGenerator()
@@ -38,7 +38,7 @@ namespace UVSTest
             var mockView = new Mock<IView>();
 
             var controller = new ControllerClass(mockView.Object, mockRepository.Object);
-            var data = new GeneratedData() {ThreadID = 1, Data = "ABCDEFG", Time = DateTime.Now};
+            var data = new GeneratedData() {ThreadID = "1", Data = "ABCDEFG", Time = DateTime.Now};
 
             controller.InsertToDatabase(data);
 
@@ -52,7 +52,7 @@ namespace UVSTest
             var mockView = new Mock<IView>();
 
             var controller = new ControllerClass(mockView.Object, mockRepository.Object);
-            var data = new GeneratedData() { ThreadID = 1, Data = "ABCDEFG", Time = DateTime.Now };
+            var data = new GeneratedData() { ThreadID = "1", Data = "ABCDEFG", Time = DateTime.Now };
             mockRepository.Setup(m => m.Create(data.ThreadID, data.Data, data.Time)).Throws<Exception>();
 
             controller.InsertToDatabase(data);
@@ -72,18 +72,6 @@ namespace UVSTest
             controller.Stop();
             mockView.Verify(m => m.DisableStopButton(), Times.AtLeast(1));
             mockView.Verify(m => m.EnableStartButton(), Times.AtLeast(1));
-        }
-
-        [TestMethod]
-        public void Test_Worker()
-        {
-            var worker = new Worker(1);
-            IGeneratedData workerData = new GeneratedData();
-                     
-            worker.DataGeneration += (IGeneratedData data) => { workerData = data; };
-
-            //worker.StartWork();
-            //worker.StopWork();           
         }
     }
 }

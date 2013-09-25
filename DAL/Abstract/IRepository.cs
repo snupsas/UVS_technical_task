@@ -7,6 +7,6 @@ namespace DAL.Abstract
 {
     public interface IRepository
     {
-        void Create(int threadID, string generatedData, DateTime generationDate);
+        void Create(string threadID, string generatedData, DateTime generationDate);
     }
 }

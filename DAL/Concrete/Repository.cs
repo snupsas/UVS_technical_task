@@ -12,7 +12,7 @@ namespace DAL
             return new OleDbConnection(ConfigurationManager.ConnectionStrings["ThreadDBConnectionString"].ConnectionString);
         }
 
-        public void Create(int threadID, string generatedData, DateTime generationDate)
+        public void Create(string threadID, string generatedData, DateTime generationDate)
         {
             var connection = GetConnection();
             string queryString = "INSERT INTO ThreadData (ThreadID, [Time], Data) VALUES (@ThreadID, @Time, @Data)";
@@ -22,7 +22,7 @@ namespace DAL
                 using (OleDbCommand command = connection.CreateCommand())
                 {
                     command.CommandText = queryString;
-                    command.Parameters.Add("@ThreadID", OleDbType.Integer).Value = threadID;
+                    command.Parameters.Add("@ThreadID", OleDbType.WChar).Value = threadID;
                     command.Parameters.Add("@Time", OleDbType.Date).Value = generationDate;
                     command.Parameters.Add("@Data", OleDbType.WChar).Value = generatedData;
                    
