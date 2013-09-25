@@ -103,7 +103,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Controller\Controller\Controller.csproj">
+    <ProjectReference Include="..\Controller\Controller\Controller.csproj">
       <Project>{892068FF-9980-4DEE-9363-5A18290E3D10}</Project>
       <Name>Controller</Name>
     </ProjectReference>

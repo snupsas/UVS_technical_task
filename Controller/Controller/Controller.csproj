@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A9AC5FDC-4A8C-4906-9B54-8EC083E5A098}</ProjectGuid>
+    <ProjectGuid>{892068FF-9980-4DEE-9363-5A18290E3D10}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DIR</RootNamespace>
-    <AssemblyName>Tools</AssemblyName>
+    <RootNamespace>Controller</RootNamespace>
+    <AssemblyName>Controller</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,11 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,18 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NinjectFactory.cs" />
+    <Compile Include="Abstract\IView.cs" />
+    <Compile Include="Abstract\IGeneratedData.cs" />
+    <Compile Include="Concrete\GeneratedData.cs" />
+    <Compile Include="Concrete\Worker.cs" />
+    <Compile Include="Controller.cs" />
+    <Compile Include="Abstract\IController.cs" />
+    <Compile Include="Infrastructure\ErrorLogger.cs" />
+    <Compile Include="Infrastructure\RandomTextGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Controller\Controller\Controller.csproj">
-      <Project>{892068FF-9980-4DEE-9363-5A18290E3D10}</Project>
-      <Name>Controller</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
+    <ProjectReference Include="..\..\DAL\DAL.csproj">
       <Project>{999B3364-B311-4DC8-A66D-045188518F6F}</Project>
       <Name>DAL</Name>
     </ProjectReference>
