@@ -8,7 +8,7 @@
     <ProjectGuid>{A9AC5FDC-4A8C-4906-9B54-8EC083E5A098}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tools</RootNamespace>
+    <RootNamespace>DIR</RootNamespace>
     <AssemblyName>Tools</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

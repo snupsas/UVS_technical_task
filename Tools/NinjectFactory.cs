@@ -1,26 +1,11 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="NinjectContainer.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Tools
+﻿namespace DIR
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using Ninject;
     using Controller;
     using Controller.Abstract;
-    using Controller.Concrete;
-    using DAL.Abstract;
     using DAL;
-    using Ninject.Modules;
+    using DAL.Abstract;
+    using Ninject;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public static class NinjectFactory
     {
         private static StandardKernel kernel;

@@ -105,7 +105,7 @@
             // ts_UpperMenu_bt_Close
             // 
             this.ts_UpperMenu_bt_Close.Name = "ts_UpperMenu_bt_Close";
-            this.ts_UpperMenu_bt_Close.Size = new System.Drawing.Size(152, 22);
+            this.ts_UpperMenu_bt_Close.Size = new System.Drawing.Size(111, 22);
             this.ts_UpperMenu_bt_Close.Text = "Close";
             this.ts_UpperMenu_bt_Close.Click += new System.EventHandler(this.ts_UpperMenu_bt_Close_Click);
             // 
@@ -119,9 +119,10 @@
             this.Controls.Add(this.bt_Stop);
             this.Controls.Add(this.lstv_List);
             this.Controls.Add(this.bt_Start);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(470, 390);
             this.Name = "MainForm";
-            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Threads";
             ((System.ComponentModel.ISupportInitialize)(this.num_ThreadCount)).EndInit();
             this.ts_UpperMenu.ResumeLayout(false);

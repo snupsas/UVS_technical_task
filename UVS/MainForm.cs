@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Ninject.Modules;
 using Controller.Abstract;
-using Tools;
+using DIR;
 
 namespace UVS
 {
-    public partial class MainForm : Form, IForm
+    public partial class MainForm : Form, IView
     {
         private Object myLock = new Object();
         IController controller;
@@ -72,52 +65,46 @@ namespace UVS
                 this.BeginInvoke(new Action<Exception>(ShowErrorMessage), new object[] { ex });
                 return;
             }
+
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void EnableStartButton()
         {
-            if (this.InvokeRequired)
-            {
-                this.BeginInvoke(new Action(EnableStartButton));
-                return;
-            }
+            CheckAndInvoke(new Action(EnableStartButton));
             bt_Start.Enabled = true;
         }
 
         public void DisableStartButton()
         {
-            if (this.InvokeRequired)
-            {
-                this.BeginInvoke(new Action(DisableStartButton));
-                return;
-            }
+            CheckAndInvoke(new Action(DisableStartButton));
             bt_Start.Enabled = false;
         }
 
         public void EnableStopButton()
         {
-            if (this.InvokeRequired)
-            {
-                this.BeginInvoke(new Action(EnableStopButton));
-                return;
-            }
+            CheckAndInvoke(new Action(EnableStopButton));
             bt_Stop.Enabled = true;
         }
 
         public void DisableStopButton()
         {
-            if (this.InvokeRequired)
-            {
-                this.BeginInvoke(new Action(DisableStopButton));
-                return;
-            }
+            CheckAndInvoke(new Action(DisableStopButton));
             bt_Stop.Enabled = false;
         }
 
         private void ts_UpperMenu_bt_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void CheckAndInvoke(Delegate check)
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(check);
+                return;
+            }
         }
     }
 }
